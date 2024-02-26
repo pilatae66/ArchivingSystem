@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ItemController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return redirect('/item');
+})->name('home');
+
+Route::resource('/item', ItemController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
