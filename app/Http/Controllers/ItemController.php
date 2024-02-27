@@ -75,7 +75,7 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
-        //
+        return redirect(route('item.index'))->with('message', 'Item updated successfully.');
     }
 
     /**
@@ -83,7 +83,9 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+
+        return redirect(route('item.index'))->with('message', 'Item deleted successfully.');
     }
 
     public function search(Request $request) {

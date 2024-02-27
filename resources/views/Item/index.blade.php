@@ -31,7 +31,7 @@
                         <td>{{ $item->unit_of_measure }}</td>
                         <td class="flex flex-row justify-center mt-12">
                             <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-500 hover:bg-blue text-center rounded-lg p-3 mx-2">Edit<a/>
-                            <form action="">
+                            <form action="{{ route('item.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 hover:bg-red-700 rounded-lg p-3">Delete</button>

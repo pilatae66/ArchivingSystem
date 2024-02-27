@@ -6,6 +6,7 @@
         <div class="flex flex-col justify-center w-auto">
             <form method="POST" action="{{ route('item.update', $item->id) }}" class="" enctype="multipart/form-data">
                 @csrf
+                @method('patch')
     
                 <!-- Name -->
                 <div>
@@ -34,7 +35,7 @@
     
                     <img class="rounded-lg" src="{{ asset($item->img_url) }}" alt="#">
 
-                    <x-text-input id="img_url" class="block mt-1 w-full" type="file" name="img_url" required autocomplete="new-password" />
+                    <x-text-input id="img_url" class="block mt-1 w-full" type="file" name="img_url" autocomplete="new-password" />
     
                     <x-input-error :messages="$errors->get('img_url')" class="mt-2" />
                 </div>
