@@ -16,7 +16,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::latest()->get();
-        return view('item.index', compact('items'));
+        return view('Item.index', compact('items'));
     }
 
     /**
