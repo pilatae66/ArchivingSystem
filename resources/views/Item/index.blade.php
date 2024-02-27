@@ -1,9 +1,16 @@
 <x-guest-layout>
-    <div class="flex w-4/5" style="width:80%; margin:auto;">
+    <div class="flex">
         <div class="flex flex-col w-full bg-gray-300 dark:bg-gray-700 p-10 rounded-lg mt-10">
-            <div class="flex text-white py-5 mb-5 border-b-2">
-                <h1 class="text-5xl w-full">Items</h1>
-                <a class="bg-green-500 rounded-lg p-5" href="{{ route('item.create') }}">Create</a>
+            <div class="flex justify-between text-white py-5 mb-5 border-b-2">
+                <h1 class="text-3xl w-full">Item List</h1>
+                <form class="flex flex-row block w-1/4 p-0 m-0" action="{{ route('item.search') }}" method="get">
+                    @csrf
+                    <x-text-input name="search_text" id="search_text" class="rounded-none rounded-l-lg dark:border-gray-900" type="text" placeholder="Search" />
+                    <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-600">
+                        <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
+                    </x-primary-button>
+                </form>
+                <a class="bg-green-500 rounded-lg my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-4 h-4 my-auto"/></a>
             </div> 
             <table class="text-white py-5">
                 <thead>
@@ -18,11 +25,11 @@
                 <tbody>
                     @forelse($items as $item)
                     <tr class="text-center border-b border-gray-200">
-                        <td class="p-3"><img class="rounded-lg" width="200px" height="200px" src="https://media.istockphoto.com/id/475912934/photo/paradise-beach-on-an-island-in-philippines.jpg?s=1024x1024&w=is&k=20&c=J_ASO7pqHriALqgi2C_UE0SRp4qPdNPgMU0--7kbF7I=" alt=""></td>
+                        <td class="p-3"><img class="rounded-lg" width="200px" height="200px" src="{{ asset($item->img_url) }}" alt=""></td>
                         <td>{{ $item->item_code }}</td>
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->unit_of_measure }}</td>
-                        <td class="flex flex-row justify-center mt-8">
+                        <td class="flex flex-row justify-center mt-12">
                             <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-500 hover:bg-blue text-center rounded-lg p-3 mx-2">Edit<a/>
                             <form action="">
                                 @csrf

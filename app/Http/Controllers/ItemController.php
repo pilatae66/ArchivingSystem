@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class ItemController extends Controller
 {
@@ -13,7 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::latest()->get();
         return view('item.index', compact('items'));
     }
 
@@ -22,7 +24,12 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('item.create');
+        $unit_of_measures = [
+            'lb',
+            'pc'
+        ];
+
+        return view('item.create', compact('unit_of_measures'));
     }
 
     /**
@@ -30,7 +37,16 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        //
+        $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+
+        Item::create([
+            'item_code' => $request->item_code,
+            'description' => $request->description,
+            'unit_of_measure' => $request->unit_of_measure,
+            'img_url' => $path
+        ]);
+
+        return redirect(route('item.index'))->with('message', 'Item created successfully.');
     }
 
     /**
@@ -46,7 +62,12 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $unit_of_measures = [
+            'lb',
+            'pc'
+        ];
+
+        return view('item.edit', compact('item'), compact('unit_of_measures'));
     }
 
     /**
@@ -64,4 +85,13 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function search(Request $request) {
+        $search_word = $request->input('search_text');
+
+        $items = Item::search($search_word)->get();
+
+        return view('item.index', compact('items'));;
+    }
 }
+

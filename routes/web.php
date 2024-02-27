@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/item');
-})->name('home');
+Route::get('/', [ItemController::class, 'index'])->name('home');
+Route::get('/item/search', [ItemController::class, 'search'])->name('item.search');
 
 Route::resource('/item', ItemController::class);
 
