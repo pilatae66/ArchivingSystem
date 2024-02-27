@@ -29,7 +29,7 @@ class ItemController extends Controller
             'pc'
         ];
 
-        return view('item.create', compact('unit_of_measures'));
+        return view('Item.create', compact('unit_of_measures'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ItemController extends Controller
             'img_url' => $path
         ]);
 
-        return redirect(route('item.index'))->with('message', 'Item created successfully.');
+        return redirect(route('Item.index'))->with('message', 'Item created successfully.');
     }
 
     /**
@@ -67,7 +67,7 @@ class ItemController extends Controller
             'pc'
         ];
 
-        return view('item.edit', compact('item'), compact('unit_of_measures'));
+        return view('Item.edit', compact('item'), compact('unit_of_measures'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
-        return redirect(route('item.index'))->with('message', 'Item updated successfully.');
+        return redirect(route('Item.index'))->with('message', 'Item updated successfully.');
     }
 
     /**
@@ -85,7 +85,7 @@ class ItemController extends Controller
     {
         $item->delete();
 
-        return redirect(route('item.index'))->with('message', 'Item deleted successfully.');
+        return redirect(route('Item.index'))->with('message', 'Item deleted successfully.');
     }
 
     public function search(Request $request) {
@@ -93,7 +93,7 @@ class ItemController extends Controller
 
         $items = Item::search($search_word)->get();
 
-        return view('item.index', compact('items'));;
+        return view('Item.index', compact('items'));;
     }
 }
 
