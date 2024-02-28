@@ -84,7 +84,7 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
-        return redirect(route('Item.index'))->with('message', 'Item updated successfully.');
+        return redirect(route('item.index'))->with('message', 'Item updated successfully.');
     }
 
     /**
