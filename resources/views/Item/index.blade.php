@@ -35,12 +35,16 @@
                                 <tr class="text-center border-b border-gray-500">
                                     <td class="p-3">
                                         @if($item->img_url)
-                                        <img class="rounded-lg" width="200px" height="200px" src="{{ asset($item->img_url) }}" alt="">
+                                            <a href="{{ route('item.show', $item->id) }}">
+                                                <img class="rounded-lg" width="200px" height="200px" src="{{ asset($item->img_url) }}" alt="">
+                                            </a>
                                         @else
-                                        <div class="flex flex-col justify-center items-center">
-                                            <x-carbon-no-image />
-                                            <p>No image</p>
-                                        </div>
+                                            <a href="{{ route('item.show', $item->id) }}">
+                                                <div class="flex flex-col justify-center items-center">
+                                                    <x-carbon-no-image />
+                                                    <p>No image</p>
+                                                </div>
+                                            </a>
                                         @endif
                                     </td>
                                     <td>{{ $item->item_code }}</td>

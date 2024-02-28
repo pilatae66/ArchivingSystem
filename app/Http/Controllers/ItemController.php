@@ -63,7 +63,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('Item.show', compact('item'));
     }
 
     /**
