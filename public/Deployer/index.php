@@ -21,6 +21,8 @@ define('MAIN_BRANCH', "main");
 // }
 
 // - commands
+$currentUser = exec('whoami');
+echo "Current user: $currentUser";
 $commandCD = "cd " . MAIN_DIR;
 $commandFetch = $commandCD . " && git fetch origin " . MAIN_BRANCH;
 $commandReset = $commandCD . " && git reset --hard FETCH_HEAD";
