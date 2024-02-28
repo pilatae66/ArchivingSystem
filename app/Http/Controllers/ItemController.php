@@ -84,6 +84,24 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
+        if($request->hasFile('img_url')) {
+            $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+            $params = [
+                'item_code' => $request->item_code,
+                'description' => $request->description,
+                'unit_of_measure' => $request->unit_of_measure,
+                'img_url' => $path
+            ];
+        } else {
+            $params = [
+                'item_code' => $request->item_code,
+                'description' => $request->description,
+                'unit_of_measure' => $request->unit_of_measure
+            ];
+        }
+
+        $item->update($params);
+
         return redirect(route('item.index'))->with('message', 'Item updated successfully.');
     }
 
