@@ -24,19 +24,23 @@ define('MAIN_BRANCH', "main");
 $commandCD = "cd " . MAIN_DIR;
 $commandFetch = $commandCD . " && git fetch origin " . MAIN_BRANCH;
 $commandReset = $commandCD . " && git reset --hard FETCH_HEAD";
-$commandReset = $commandCD . " && npm install";
-$commandReset = $commandCD . " && npm run build";
+$commandNpmInstall = $commandCD . " && npm install";
+$commandNpmBuild = $commandCD . " && npm run build";
 
 // - debug
 var_dump("- RUNNING THE FOLLOWING COMMANDS -");
 var_dump($commandCD);
 var_dump($commandFetch);
 var_dump($commandReset);
+var_dump($commandNpmInstall);
+var_dump($commandNpmBuild);
 
 // - run commands
 executeCommand($commandCD);
 executeCommand($commandFetch);
 var_dump(executeCommand($commandReset));
+var_dump(executeCommand($commandNpmInstall));
+var_dump(executeCommand($commandNpmBuild));
 
 // - execute command
 function executeCommand($command){
