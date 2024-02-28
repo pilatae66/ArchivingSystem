@@ -1,5 +1,5 @@
 <?php
-define('MAIN_DIR', "/var/www/html/salmon-breakfast");
+define('MAIN_DIR', "/var/www/html/rough-dusk/releases/release_20240228064713");
 define('MAIN_BRANCH', "main");
 
 // - check if post is TRUE
