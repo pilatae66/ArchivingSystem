@@ -3,22 +3,22 @@ define('MAIN_DIR', "/var/www/html/salmon-breakfast");
 define('MAIN_BRANCH', "main");
 
 // - check if post is TRUE
-if (isset($_POST['payload']) === FALSE) {
-        echo "Invalid POST data";
-        exit();
-}
+// if (isset($_POST['payload']) === FALSE) {
+//         echo "Invalid POST data";
+//         exit();
+// }
 
-// - get payload.
-$payload = json_decode(@$_POST['payload']);
+// // - get payload.
+// $payload = json_decode(@$_POST['payload']);
 
-// - check if the payload with ref exists
-if (
-        !isset($payload->ref) ||
-        (isset($payload->ref) && !strpos($payload->ref, MAIN_BRANCH))
-) {
-        echo "Invalid Branch";
-        exit();
-}
+// // - check if the payload with ref exists
+// if (
+//         !isset($payload->ref) ||
+//         (isset($payload->ref) && !strpos($payload->ref, MAIN_BRANCH))
+// ) {
+//         echo "Invalid Branch";
+//         exit();
+// }
 
 // - commands
 $commandCD = "cd " . MAIN_DIR;
