@@ -15,7 +15,7 @@
             <table class="text-white py-5">
                 <thead>
                     <tr class="border">
-                        <th class="w-40 p-5">Image</th>
+                        <th class="w-40 p-5">Images</th>
                         <th>Item Code</th>
                         <th>Description</th>
                         <th>UOM</th>
