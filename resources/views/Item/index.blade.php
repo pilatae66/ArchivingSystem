@@ -25,7 +25,16 @@
                 <tbody>
                     @forelse($items as $item)
                     <tr class="text-center border-b border-gray-200">
-                        <td class="p-3"><img class="rounded-lg" width="200px" height="200px" src="{{ asset($item->img_url) }}" alt=""></td>
+                        <td class="p-3">
+                            @if($item->img_url)
+                                <img class="rounded-lg" width="200px" height="200px" src="{{ asset($item->img_url) }}" alt="">
+                            @else
+                                <div class="flex flex-col justify-center items-center">
+                                    <x-carbon-no-image />
+                                    <p>No image</p>
+                                </div>
+                            @endif
+                        </td>
                         <td>{{ $item->item_code }}</td>
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->unit_of_measure }}</td>

@@ -37,16 +37,25 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+        if($request->hasFile('img_url')) {
+            $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+            $params = [
+                'item_code' => $request->item_code,
+                'description' => $request->description,
+                'unit_of_measure' => $request->unit_of_measure,
+                'img_url' => $path
+            ];
+        } else {
+            $params = [
+                'item_code' => $request->item_code,
+                'description' => $request->description,
+                'unit_of_measure' => $request->unit_of_measure
+            ];
+        }
 
-        Item::create([
-            'item_code' => $request->item_code,
-            'description' => $request->description,
-            'unit_of_measure' => $request->unit_of_measure,
-            'img_url' => $path
-        ]);
+        Item::create($params);
 
-        return redirect(route('Item.index'))->with('message', 'Item created successfully.');
+        return redirect(route('item.index'))->with('message', 'Item created successfully.');
     }
 
     /**
@@ -85,7 +94,7 @@ class ItemController extends Controller
     {
         $item->delete();
 
-        return redirect(route('Item.index'))->with('message', 'Item deleted successfully.');
+        return redirect(route('item.index'))->with('message', 'Item deleted successfully.');
     }
 
     public function search(Request $request) {
