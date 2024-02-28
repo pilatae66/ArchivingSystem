@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="flex flex-col justify-center bg-gray-300 dark:bg-gray-700 p-10 rounded-lg w-3/12 mx-auto">
-        <div class="flex text-white pb-5 mb-5 border-b-2 border-slate-500">
+    <div class="flex flex-col justify-center bg-gray-300 dark:bg-gray-700 p-10 rounded-lg w-3/12 mx-auto text-gray-200">
+        <div class="flex pb-5 mb-5 border-b-2 border-slate-500">
             <h1 class="text-3xl w-full">Edit Item</h1>
         </div>
         <div class="flex flex-col justify-center w-auto">
@@ -36,7 +36,7 @@
                     @if($item->img_url)
                     <img class="rounded-lg" src="{{ asset($item->img_url) }}" alt="#">
                     @else
-                        <div class="flex flex-col justify-center items-center text-white">
+                        <div class="flex flex-col justify-center items-center">
                             <x-carbon-no-image />
                             <p>No image</p>
                         </div>
