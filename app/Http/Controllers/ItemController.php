@@ -10,6 +10,16 @@ use Illuminate\Http\RedirectResponse;
 
 class ItemController extends Controller
 {
+
+    protected $unit_of_measures = [
+        'lb',
+        'pc',
+        'kgs',
+        'unit',
+        'set',
+        'pack',
+        'box'
+    ];
     /**
      * Display a listing of the resource.
      */
@@ -24,10 +34,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $unit_of_measures = [
-            'lb',
-            'pc'
-        ];
+        $unit_of_measures = $this->unit_of_measures;
 
         return view('Item.create', compact('unit_of_measures'));
     }
@@ -71,10 +78,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        $unit_of_measures = [
-            'lb',
-            'pc'
-        ];
+        $unit_of_measures = $this->unit_of_measures;
 
         return view('Item.edit', compact('item'), compact('unit_of_measures'));
     }
