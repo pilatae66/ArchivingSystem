@@ -12,14 +12,42 @@ class ItemController extends Controller
 {
 
     protected $unit_of_measures = [
-        'lb',
-        'pc',
-        'kgs',
-        'unit',
-        'set',
-        'pack',
-        'box'
-    ];
+        // Length
+        "Meter (m)",
+        "Centimeter (cm)",
+        "Millimeter (mm)",
+        "Inch (in)",
+        "Foot (ft)",
+        "Yard (yd)",
+      
+        // Weight
+        "Kilogram (kg)",
+        "Gram (g)",
+        "Milligram (mg)",
+        "Ton (t)",
+        "Pound (lb)",
+        "Ounce (oz)",
+      
+        // Volume
+        "Liter (L)",
+        "Milliliter (mL)",
+        "US Gallon (gal)",
+        "UK Gallon (gal)",
+        "Fluid Ounce (fl oz)",
+      
+        // Area
+        "Square Meter (m²)",
+        "Square Centimeter (cm²)",
+        "Square Inch (in²)",
+        "Square Foot (ft²)",
+        "Acre (ac)",
+      
+        // Other
+        "Piece (pcs)",
+        "Dozen (dz)",
+        "Set (set)",
+        "Pair (pr)",
+      ];
     /**
      * Display a listing of the resource.
      */
