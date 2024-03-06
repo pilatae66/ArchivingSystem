@@ -1,5 +1,5 @@
 <?php
-define('MAIN_DIR', "/var/www/html/laravel/public");
+define('MAIN_DIR', "/var/www/laravel/public");
 define('MAIN_BRANCH', "main");
 
 // - check if post is TRUE
