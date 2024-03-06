@@ -1,12 +1,12 @@
 <x-guest-layout>
 
     @if(session()->has('message'))
-    <x-bladewind.alert type="success">
+    <x-bladewind.alert type="success" class="mb-5">
         {{ session('message') }}
     </x-bladewind.alert>
     @endif
     <div class="flex text-gray-200">
-        <div class="flex flex-col w-full bg-gray-300 dark:bg-gray-700 p-10 rounded-lg mt-10">
+        <div class="flex flex-col w-full bg-gray-300 dark:bg-gray-700 p-10 rounded-lg">
             <div class="flex justify-between py-5 mb-5 border-b-2">
                 <h1 class="text-3xl w-full">Item List</h1>
                 <form class="flex flex-row block w-1/4 p-0 m-0" action="{{ route('item.search') }}" method="get">
@@ -50,13 +50,15 @@
                                     <td>{{ $item->item_code }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>{{ $item->unit_of_measure }}</td>
-                                    <td class="flex flex-row justify-center mt-12">
-                                        <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-lg p-3 mx-2">Edit<a />
+                                    <td>
+                                        <div class="flex flex-row justify-center">
+                                            <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-lg p-3 mx-2">Edit<a />
                                             <form action="{{ route('item.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="bg-red-700 hover:bg-red-500 rounded-lg p-3">Delete</button>
                                             </form>
+                                        </div>
                                     </td>
                                 </tr>
                                 @empty

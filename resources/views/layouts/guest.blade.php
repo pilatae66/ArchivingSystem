@@ -23,7 +23,7 @@
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
         <!-- Page Content -->
-        <main class="w-4/5 mx-auto">
+        <main class="w-4/5 mx-auto py-10">
             {{ $slot }}
         </main>
     </div>
