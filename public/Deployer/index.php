@@ -41,8 +41,8 @@ var_dump($commandNpmBuild);
 executeCommand($commandCD);
 executeCommand($commandFetch);
 var_dump(executeCommand($commandReset));
-var_dump(executeCommand($commandNpmInstall));
-var_dump(executeCommand($commandNpmBuild));
+// var_dump(executeCommand($commandNpmInstall));
+// var_dump(executeCommand($commandNpmBuild));
 
 // - execute command
 function executeCommand($command){
