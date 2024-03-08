@@ -26,8 +26,7 @@ echo "Current user: $currentUser";
 $commandCD = "cd " . MAIN_DIR;
 $commandFetch = $commandCD . " && git fetch origin " . MAIN_BRANCH;
 $commandReset = $commandCD . " && git reset --hard FETCH_HEAD";
-$commandNpmInstall = $commandCD . " && npm install";
-$commandNpmBuild = $commandCD . " && npm run build";
+$commandMigration = $commandCD . " && php artisan migrate";
 
 // - debug
 var_dump("- RUNNING THE FOLLOWING COMMANDS -");
@@ -41,8 +40,7 @@ var_dump($commandNpmBuild);
 executeCommand($commandCD);
 executeCommand($commandFetch);
 var_dump(executeCommand($commandReset));
-// var_dump(executeCommand($commandNpmInstall));
-// var_dump(executeCommand($commandNpmBuild));
+var_dump(executeCommand($commandMigration));
 
 // - execute command
 function executeCommand($command){
