@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->softDeletes($column = 'deleted_at', $precision = 0);
-            $table->string('img_url', 255)->nullable()->change();
+            $table->string('department', 255)->after('img_url')->default(NULL);
+            $table->string('end_user', 255)->after('department')->default(NULL);
+            $table->string('requestor', 255)->after('end_user')->default(NULL);
         });
     }
 
@@ -23,8 +24,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->dropColumn('deleted_at');
-            $table->string('img_url', 255)->nullable(false)->change();
+            $table->dropColumn([
+                'department',
+                'end_user',
+               'requestor',
+            ]);
         });
     }
 };

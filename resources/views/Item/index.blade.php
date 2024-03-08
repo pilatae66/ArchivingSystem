@@ -27,6 +27,9 @@
                                 <th>Item Code</th>
                                 <th>Description</th>
                                 <th>UOM</th>
+                                <th>Department</th>
+                                <th>End User</th>
+                                <th>Requestor</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -50,6 +53,9 @@
                                     <td>{{ $item->item_code }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>{{ $item->unit_of_measure }}</td>
+                                    <td>{{ $item->department }}</td>
+                                    <td>{{ $item->end_user }}</td>
+                                    <td>{{ $item->requestor }}</td>
                                     <td>
                                         <div class="flex flex-row justify-center">
                                             <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-lg p-3 mx-2">Edit<a />

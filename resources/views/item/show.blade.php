@@ -29,6 +29,18 @@
                     <p>Unit of Measurement</p>
                     <h1 class="text-3xl">{{ $item->unit_of_measure }}</h1>
                 </div>
+                <div class="flex flex-col justify-center items-center py-5 border-b">
+                    <p>Department</p>
+                    <h1 class="text-3xl">{{ $item->department }}</h1>
+                </div>
+                <div class="flex flex-col justify-center items-center py-5 border-b">
+                    <p>End User</p>
+                    <h1 class="text-3xl">{{ $item->end_user }}</h1>
+                </div>
+                <div class="flex flex-col justify-center items-center py-5 border-b">
+                    <p>Requestor</p>
+                    <h1 class="text-3xl">{{ $item->requestor }}</h1>
+                </div>
             </div>
         </div>
     </div>
