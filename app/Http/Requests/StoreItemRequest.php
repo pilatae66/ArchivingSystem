@@ -26,6 +26,9 @@ class StoreItemRequest extends FormRequest
             'description' => ['required','string','max:255'],
             'unit_of_measure' => ['required','string','max:255'],
             'img_url' => ['sometimes','file','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+            'department' => ['required','string','max:255'],
+            'end_user' => ['required','string','max:255'],
+            'requestor' => ['required','string','max:255'],
         ];
     }
 
@@ -48,6 +51,18 @@ class StoreItemRequest extends FormRequest
             'img_url.required' => 'Image is required.',
             'img_url.mimes' => 'Image must be a file of type: jpeg, png, jpg, gif, svg.',
             'img_url.max' => 'Image must be less than 2048 KB.',
+            //unit of measure validation
+            'department.required' => 'Department is required.',
+            'department.string' => 'Department must be a string.',
+            'department.max' => 'Department must be less than 255 characters.',
+            //unit of measure validation
+            'end_user.required' => 'End User is required.',
+            'end_user.string' => 'End User must be a string.',
+            'end_user.max' => 'End User must be less than 255 characters.',
+            //unit of measure validation
+            'requestor.required' => 'Requestor is required.',
+            'requestor.string' => 'Requestor must be a string.',
+            'requestor.max' => 'Requestor must be less than 255 characters.',
         ];
     }
 }

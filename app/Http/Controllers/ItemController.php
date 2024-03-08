@@ -72,20 +72,18 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
+        $params = [
+            'item_code' => $request->item_code,
+            'description' => $request->description,
+            'unit_of_measure' => $request->unit_of_measure,
+            'department' => $request->department,
+            'end_user' => $request->end_user,
+            'requestor' => $request->requestor
+        ];
+
         if($request->hasFile('img_url')) {
             $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
-            $params = [
-                'item_code' => $request->item_code,
-                'description' => $request->description,
-                'unit_of_measure' => $request->unit_of_measure,
-                'img_url' => $path
-            ];
-        } else {
-            $params = [
-                'item_code' => $request->item_code,
-                'description' => $request->description,
-                'unit_of_measure' => $request->unit_of_measure
-            ];
+            $params['img_url'] = $path;
         }
 
         Item::create($params);
@@ -116,20 +114,18 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
+        $params = [
+            'item_code' => $request->item_code,
+            'description' => $request->description,
+            'unit_of_measure' => $request->unit_of_measure,
+            'department' => $request->department,
+            'end_user' => $request->end_user,
+            'requestor' => $request->requestor
+        ];
+
         if($request->hasFile('img_url')) {
             $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
-            $params = [
-                'item_code' => $request->item_code,
-                'description' => $request->description,
-                'unit_of_measure' => $request->unit_of_measure,
-                'img_url' => $path
-            ];
-        } else {
-            $params = [
-                'item_code' => $request->item_code,
-                'description' => $request->description,
-                'unit_of_measure' => $request->unit_of_measure
-            ];
+            $params['img_url'] = $path;
         }
 
         $item->update($params);
