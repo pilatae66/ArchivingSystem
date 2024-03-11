@@ -47,13 +47,14 @@ class ItemController extends Controller
         "Dozen (dz)",
         "Set (set)",
         "Pair (pr)",
-      ];
+    ];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = Item::latest()->get();
+        $items = session()->has('items') ? session()->get('items') : Item::latest()->get();
+
         return view('Item.index', compact('items'));
     }
 
@@ -148,7 +149,9 @@ class ItemController extends Controller
 
         $items = Item::search($search_word)->get();
 
-        return view('Item.index', compact('items'));;
+        $empty_message = $items->isEmpty() ? "No items available for $search_word" : "";
+
+        return redirect(route('home'))->with('items', $items)->with('empty_message', $empty_message)->withInput();
     }
 }
 

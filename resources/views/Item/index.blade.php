@@ -11,12 +11,12 @@
                 <h1 class="text-3xl w-full">Item List</h1>
                 <form class="flex flex-row block w-1/4 p-0 m-0" action="{{ route('item.search') }}" method="get">
                     @csrf
-                    <x-text-input name="search_text" id="search_text" class="rounded-none rounded-l-lg dark:border-gray-900" type="text" placeholder="Search" />
-                    <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-600">
+                    <x-text-input name="search_text" id="search_text" class="rounded-none rounded-l-lg dark:border-gray-900" type="text" placeholder="Search" :value="old('search_text')" />
+                    <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-400">
                         <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
                     </x-primary-button>
                 </form>
-                <a class="bg-green-700 hover:bg-green-500 rounded-lg my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-4 h-4 my-auto" /></a>
+                <a class="bg-green-700 hover:bg-green-500 rounded-lg my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-5 h-5 my-auto ml-1" /></a>
             </div>
             <div class="relative rounded-t-xl overflow-auto mt-2">
                 <div class="shadow-sm overflow-hidden bg-white dark:bg-slate-800">
@@ -70,7 +70,9 @@
                                 @empty
                                 <tr>
                                     <td class="text-gray-500 text-center my-10 py-10" colspan="8">
-                                        No items available
+                                        @if(session()->has('empty_message'))
+                                            {{ session('empty_message') }}
+                                        @endif
                                     </td>
                                 </tr>
                             @endforelse
