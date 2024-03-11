@@ -69,7 +69,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td class="text-white text-center my-10 py-10" colspan="8">
+                                    <td class="text-gray-500 text-center my-10 py-10" colspan="8">
                                         No items available
                                     </td>
                                 </tr>
