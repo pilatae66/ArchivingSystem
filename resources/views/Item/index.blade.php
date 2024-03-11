@@ -72,6 +72,8 @@
                                     <td class="text-gray-500 text-center my-10 py-10" colspan="8">
                                         @if(session()->has('empty_message'))
                                             {{ session('empty_message') }}
+                                        @else
+                                            No items available
                                         @endif
                                     </td>
                                 </tr>
