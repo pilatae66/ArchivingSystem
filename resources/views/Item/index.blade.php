@@ -7,7 +7,7 @@
     @endif
     <div class="flex text-gray-200">
         <div class="flex flex-col w-full bg-gray-300 dark:bg-gray-700 p-10 rounded-lg">
-            <div class="flex justify-between py-5 mb-5 border-b-2">
+            <div class="flex justify-between py-5 mb-5 border-b-2 border-gray-500">
                 <h1 class="text-3xl w-full">Item List</h1>
                 <form class="flex flex-row block w-1/4 p-0 m-0" action="{{ route('item.search') }}" method="get">
                     @csrf
