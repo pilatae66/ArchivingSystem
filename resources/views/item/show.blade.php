@@ -16,28 +16,30 @@
                     </div>
                 @endif
             </div>
-            <div class="flex flex-col justify-center border-t mt-5">
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+            <div class="border-b-2 border-gray-500 my-10"></div>
+            <div class="grid grid-cols-4">
+                <div class="flex flex-col justify-center items-center py-10 border-r-2 border-gray-500">
                     <p>Item Code</p>
                     <h1 class="text-3xl">{{ $item->item_code }}</h1>
                 </div>
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+                <div class="flex flex-col justify-center items-center py-10 border-r-2 border-gray-500">
                     <p>Description</p>
                     <h1 class="text-3xl">{{ $item->description }}</h1>
                 </div>
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+                <div class="flex flex-col justify-center items-center py-10 border-r-2 border-gray-500">
                     <p>Unit of Measurement</p>
                     <h1 class="text-3xl">{{ $item->unit_of_measure }}</h1>
                 </div>
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+                <div class="flex flex-col justify-center items-center py-10">
                     <p>Department</p>
                     <h1 class="text-3xl">{{ $item->department }}</h1>
                 </div>
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+                <div></div>
+                <div class="flex flex-col justify-center items-center border-r-2 border-gray-500 py-10">
                     <p>End User</p>
                     <h1 class="text-3xl">{{ $item->end_user }}</h1>
                 </div>
-                <div class="flex flex-col justify-center items-center py-5 border-b">
+                <div class="flex flex-col justify-center items-center py-10">
                     <p>Requestor</p>
                     <h1 class="text-3xl">{{ $item->requestor }}</h1>
                 </div>
