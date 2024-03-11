@@ -10,14 +10,14 @@
             <div class="flex justify-between py-5 mb-5 border-b-2 border-gray-500">
                 <h1 class="text-3xl w-full">Item List</h1>
                 <div class="flex space-x-6">
-                    <form class="flex flex-row block" action="{{ route('item.search') }}" method="get">
+                    <form class="flex flex-row" action="{{ route('item.search') }}" method="get">
                         @csrf
                         <x-text-input name="search_text" id="search_text" class="rounded-none rounded-l-lg dark:border-gray-900 w-60" type="text" placeholder="Search..." :value="old('search_text')" />
                         <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-600 dark:focus:bg-gray-600">
                             <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
                         </x-primary-button>
                     </form>
-                    <a class="bg-green-700 hover:bg-green-500 rounded-md my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-5 h-5 my-auto ml-1" /></a>
+                    <x-bladewind.button type="primary" radius="medium" tag="a" size="tiny" icon="plus" icon_right="true" color="green" href="{{ route('item.create') }}" name="p-0 m-0">Create</x-bladewind.button>
                 </div>
             </div>
             <div class="relative rounded-t-xl overflow-auto mt-2">
@@ -59,12 +59,12 @@
                                     <td>{{ $item->end_user }}</td>
                                     <td>{{ $item->requestor }}</td>
                                     <td>
-                                        <div class="flex flex-row justify-center">
-                                            <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-md p-3 mx-2">Edit<a />
+                                        <div class="flex flex-row justify-center space-x-2">
+                                            <x-bladewind.button type="primary" tag="a" size="small" radius="small" color="blue" href="{{ route('item.edit', $item->id) }}" name="p-0 m-0">Edit</x-bladewind.button>
                                             <form action="{{ route('item.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="bg-red-700 hover:bg-red-500 rounded-md p-3">Delete</button>
+                                                <x-bladewind.button type="primary" size="small" radius="small" color="red" can_submit="true">Delete</x-bladewind.button>
                                             </form>
                                         </div>
                                     </td>
