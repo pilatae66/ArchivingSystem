@@ -1,5 +1,10 @@
 <x-guest-layout>
     <div class="flex flex-col justify-center w-1/2 bg-gray-300 dark:bg-gray-700 p-10 rounded-lg mx-auto text-gray-200">
+        <div class="mb-5">
+            <a href="{{ route('item.index') }}">
+                <x-bx-left-arrow-alt width="30" height="30" class="text-gray-500 hover:text-gray-300" />
+            </a>
+        </div>
         <div class="flex pb-5 mb-5 border-b-2 border-slate-500">
             <h1 class="text-3xl">Create Item</h1>
         </div>
