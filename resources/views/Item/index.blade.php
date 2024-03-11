@@ -17,7 +17,7 @@
                             <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
                         </x-primary-button>
                     </form>
-                    <a class="bg-green-700 hover:bg-green-500 rounded-lg my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-5 h-5 my-auto ml-1" /></a>
+                    <a class="bg-green-700 hover:bg-green-500 rounded-md my-auto p-2 flex flex-row" href="{{ route('item.create') }}">Create <x-typ-plus class="w-5 h-5 my-auto ml-1" /></a>
                 </div>
             </div>
             <div class="relative rounded-t-xl overflow-auto mt-2">
@@ -60,11 +60,11 @@
                                     <td>{{ $item->requestor }}</td>
                                     <td>
                                         <div class="flex flex-row justify-center">
-                                            <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-lg p-3 mx-2">Edit<a />
+                                            <a href="{{ route('item.edit', $item->id) }}" class="bg-blue-700 hover:bg-blue-500 text-center rounded-md p-3 mx-2">Edit<a />
                                             <form action="{{ route('item.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="bg-red-700 hover:bg-red-500 rounded-lg p-3">Delete</button>
+                                                <button type="submit" class="bg-red-700 hover:bg-red-500 rounded-md p-3">Delete</button>
                                             </form>
                                         </div>
                                     </td>
