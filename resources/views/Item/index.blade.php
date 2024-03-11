@@ -12,7 +12,7 @@
                 <form class="flex flex-row block w-1/4 p-0 m-0" action="{{ route('item.search') }}" method="get">
                     @csrf
                     <x-text-input name="search_text" id="search_text" class="rounded-none rounded-l-lg dark:border-gray-900" type="text" placeholder="Search" :value="old('search_text')" />
-                    <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-400">
+                    <x-primary-button class="rounded-none rounded-r-lg dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:active:bg-gray-600 dark:focus:bg-gray-600">
                         <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
                     </x-primary-button>
                 </form>
