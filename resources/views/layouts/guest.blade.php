@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="/favicon-no-background.png" type="image/x-icon">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />

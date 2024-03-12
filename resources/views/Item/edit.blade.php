@@ -51,14 +51,14 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-input-label for="img_url" :value="__('Image')" />
+                    <x-input-label for="img_url" class="mb-2" :value="__('Image')" />
 
                     @if($item->img_url)
                         <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item" url="{{ asset($item->img_url) }}"  />
                     @else
                         <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item"  />
                     @endif
-                    
+
                     <x-input-error :messages="$errors->get('img_url')" class="mt-2" />
                 </div>
 
