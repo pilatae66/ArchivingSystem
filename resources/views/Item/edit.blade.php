@@ -54,15 +54,11 @@
                     <x-input-label for="img_url" :value="__('Image')" />
 
                     @if($item->img_url)
-                    <img class="rounded-lg mt-1" src="{{ asset($item->img_url) }}" alt="#">
+                        <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item" url="{{ asset($item->img_url) }}"  />
                     @else
-                    <div class="flex flex-col justify-center items-center mt-1">
-                        <x-carbon-no-image />
-                        <p>No image</p>
-                    </div>
+                        <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item"  />
                     @endif
-
-                    <x-text-input id="img_url" class="block mt-1 w-full mt-2" type="file" name="img_url" autocomplete="img_url" />
+                    
                     <x-input-error :messages="$errors->get('img_url')" class="mt-2" />
                 </div>
 

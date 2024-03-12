@@ -49,10 +49,8 @@
                     </div>
                 </div>
                 <div class="mt-4">
-                    <x-input-label for="img_url" :value="__('Image')" />
-
-                    <x-text-input id="img_url" class="block mt-1 w-full" type="file" name="img_url" autocomplete="img_url" />
-
+                    <x-input-label class="mb-2" for="img_url" :value="__('Image')" />
+                    <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item"  />
                     <x-input-error :messages="$errors->get('img_url')" class="mt-2" />
                 </div>
                 <div class="flex items-center justify-center mt-5 border-t-2 border-slate-500">

@@ -17,7 +17,7 @@
                             <x-bi-search class="w-4 h-4 my-auto p-0 m-0 text-gray-500" />
                         </x-primary-button>
                     </form>
-                    <x-bladewind.button type="primary" radius="medium" tag="a" size="tiny" icon="plus" icon_right="true" color="green" href="{{ route('item.create') }}" name="p-0 m-0">Create</x-bladewind.button>
+                    <a class="bg-green-700 hover:bg-green-500 rounded-md my-auto p-3 flex flex-row text-xs" href="{{ route('item.create') }}">CREATE <x-typ-plus class="w-3 h-3 my-auto ml-1" /></a>
                 </div>
             </div>
             <div class="relative rounded-t-xl overflow-auto mt-2">
