@@ -38,7 +38,7 @@
 
                     <div>
                         <x-input-label for="description" :value="__('Description')" />
-                        <x-text-area id="description" class="block mt-1 w-full" name="description" :value="old('item_code')" autocomplete="description" />
+                        <x-text-area id="description" class="block mt-1 w-full" name="description" :value="old('description')" autocomplete="description" />
                         <x-input-error :messages="$errors->get('description')" class="mt-2" />
                     </div>
 
@@ -47,7 +47,14 @@
                         <x-text-input id="requestor" class="block mt-1 w-full" type="text" name="requestor" :value="old('requestor')" autofocus autocomplete="requestor" />
                         <x-input-error :messages="$errors->get('requestor')" class="mt-2" />
                     </div>
+
                 </div>
+                <div class="mt-4">
+                    <x-input-label for="description" :value="__('Specification')" />
+                    <x-text-area id="specification" class="block mt-1 w-full" name="specification" :value="old('specification')" autocomplete="specification" />
+                    <x-input-error :messages="$errors->get('specification')" class="mt-2" />
+                </div>
+                
                 <div class="mt-4">
                     <x-input-label class="mb-2" for="img_url" :value="__('Image')" />
                     <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item"  />

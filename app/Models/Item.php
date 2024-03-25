@@ -14,7 +14,7 @@ class Item extends Model
     use Searchable;
     use SoftDeletes;
 
-    protected $fillable = ['item_code', 'description', 'unit_of_measure', 'img_url', 'department', 'end_user', 'requestor'];
+    protected $fillable = ['item_code', 'description', 'unit_of_measure', 'img_url', 'department', 'end_user', 'requestor', 'specification'];
 
     protected function imgUrl() : Attribute {
         return Attribute::make(
@@ -31,6 +31,7 @@ class Item extends Model
             'department' => $this->department,
             'end_user' => $this->end_user,
             'requestor' => $this->requestor,
+            'specification' => $this->specification,
         ];
     }
 }

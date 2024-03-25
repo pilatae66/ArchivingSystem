@@ -49,11 +49,16 @@
                         <x-input-error :messages="$errors->get('requestor')" class="mt-2" />
                     </div>
                 </div>
+                <div class="mt-4">
+                    <x-input-label for="specification" :value="__('Specification')" />
+                    <x-text-area id="specification" class="block mt-1 w-full" name="specification" :value="$item->specification ?? old('specification')" autocomplete="specification" />
+                    <x-input-error :messages="$errors->get('specification')" class="mt-2" />
+                </div>
 
                 <div class="mt-4">
                     <x-input-label for="img_url" class="mb-2" :value="__('Image')" />
 
-                    @if($item->img_url)
+                    @if(!empty($item->img_url))
                         <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item" url="{{ asset($item->img_url) }}"  />
                     @else
                         <x-bladewind.filepicker name="img_url" placeholder="Upload the image of the item"  />

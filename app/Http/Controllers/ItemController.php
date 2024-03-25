@@ -87,6 +87,10 @@ class ItemController extends Controller
             $params['img_url'] = $path;
         }
 
+        if($request->has('specification')) {
+            $params['specification'] = $request->specification;
+        }
+
         Item::create($params);
 
         return redirect(route('item.index'))->with('message', 'Item created successfully.');
@@ -127,6 +131,10 @@ class ItemController extends Controller
         if($request->hasFile('img_url')) {
             $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
             $params['img_url'] = $path;
+        }
+
+        if($request->has('specification')) {
+            $params['specification'] = $request->specification;
         }
 
         $item->update($params);
