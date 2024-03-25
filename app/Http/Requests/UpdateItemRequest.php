@@ -29,6 +29,7 @@ class UpdateItemRequest extends FormRequest
             'department' => ['required','string','max:255'],
             'end_user' => ['required','string','max:255'],
             'requestor' => ['required','string','max:255'],
+            'specification' => ['required','string','max:1000'],
         ];
     }
 
@@ -55,14 +56,18 @@ class UpdateItemRequest extends FormRequest
             'department.required' => 'Department is required.',
             'department.string' => 'Department must be a string.',
             'department.max' => 'Department must be less than 255 characters.',
-            //unit of measure validation
+            //end user validation
             'end_user.required' => 'End User is required.',
             'end_user.string' => 'End User must be a string.',
             'end_user.max' => 'End User must be less than 255 characters.',
-            //unit of measure validation
+            //requestor validation
             'requestor.required' => 'Requestor is required.',
             'requestor.string' => 'Requestor must be a string.',
             'requestor.max' => 'Requestor must be less than 255 characters.',
+            //specification validation
+            'specification.required' => 'Specification is required.',
+            'specification.string' => 'Specification must be a string.',
+            'specification.max' => 'Specification must be less than 1000 characters.',
         ];
     }
 }

@@ -29,6 +29,7 @@ class StoreItemRequest extends FormRequest
             'department' => ['required','string','max:255'],
             'end_user' => ['required','string','max:255'],
             'requestor' => ['required','string','max:255'],
+            'specification' => ['required','string','max:1000'],
         ];
     }
 
@@ -63,6 +64,10 @@ class StoreItemRequest extends FormRequest
             'requestor.required' => 'Requestor is required.',
             'requestor.string' => 'Requestor must be a string.',
             'requestor.max' => 'Requestor must be less than 255 characters.',
+            //specification validation
+            'specification.required' => 'Specification is required.',
+            'specification.string' => 'Specification must be a string.',
+            'specification.max' => 'Specification must be less than 1000 characters.',
         ];
     }
 }
