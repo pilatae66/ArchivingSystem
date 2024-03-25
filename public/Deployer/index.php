@@ -26,7 +26,7 @@ $commandCD = "cd " . MAIN_DIR;
 $commandRootCD = "cd " . ROOT;
 $commandFetch = $commandCD . " && git fetch origin " . MAIN_BRANCH;
 $commandReset = $commandCD . " && git reset --hard FETCH_HEAD";
-$commandMigration = $commandRootCD . " && php artisan migrate";
+$commandMigration = $commandRootCD . " && php artisan migrate --force";
 $commandViteBuild = $commandRootCD . " && npm run build";
 
 // - debug
