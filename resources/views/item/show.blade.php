@@ -81,7 +81,7 @@
                 </p>
                 <div class="flex flex-col justify-items-center align-center items-center mt-4">
                     <div class="w-9/12 bg-gray-500 p-10 rounded-lg">
-                        <h1 class="text-xl">{{ $item->specification }}</h1>
+                        <h1 class="text-xl">{!! nl2br($item->specification) !!}</h1>
                     </div>
                 </div>
             </div>
