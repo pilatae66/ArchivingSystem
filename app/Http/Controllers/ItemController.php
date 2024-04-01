@@ -7,6 +7,7 @@ use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class ItemController extends Controller
 {
@@ -83,7 +84,8 @@ class ItemController extends Controller
         ];
 
         if($request->hasFile('img_url')) {
-            $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+            $filename = Str::uuid() . "." . $request->file('img_url')->getClientOriginalExtension();
+            $path = $request->file('img_url')->storePubliclyAs('images/items', $filename, 'public');
             $params['img_url'] = $path;
         }
 
@@ -129,7 +131,8 @@ class ItemController extends Controller
         ];
 
         if($request->hasFile('img_url')) {
-            $path = $request->file('img_url')->storePubliclyAs('images/items', $request->file('img_url')->getClientOriginalName(), 'public');
+            $filename = Str::uuid() . "." . $request->file('img_url')->getClientOriginalExtension();
+            $path = $request->file('img_url')->storePubliclyAs('images/items', $filename, 'public');
             $params['img_url'] = $path;
         }
 
