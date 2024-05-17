@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="flex text-gray-200">
         <div class="flex flex-col w-full bg-gray-300 dark:bg-gray-700 p-10 rounded-lg">
-            <div>
+            <div class="mb-2 w-8">
                 <a href="{{ route('home') }}">
                     <x-bx-left-arrow-alt width="30" height="30" class="text-gray-500 hover:text-gray-300" />
                 </a>
